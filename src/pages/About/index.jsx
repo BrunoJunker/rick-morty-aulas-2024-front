@@ -29,6 +29,25 @@ export default function About() {
                         <img src="https://petmeupet.com.br/wp-content/uploads/2022/07/golden-retriever-pet-meu-pet-home.jpg" alt="Cachorro 3" />
                     </div>
                 </section>
+                <section id="tips">
+                    <h2>Dicas de Cuidados</h2>
+                    <p>Mantenha seu cachorro saudável com essas dicas:</p>
+                    <ul>
+                        <li>Alimentação balanceada</li>
+                        <li>Exercícios diários</li>
+                        <li>Visitas regulares ao veterinário</li>
+                        <li>Higiene adequada</li>
+                    </ul>
+                </section>
+                <section id="testimonials">
+                    <h2>Depoimentos</h2>
+                    <div className="testimonial">
+                        <p>"Meu Labrador é muito mais feliz depois que comecei a seguir as dicas deste site!" - João</p>
+                    </div>
+                    <div className="testimonial">
+                        <p>"Adorei a seção de raças, me ajudou a escolher o cachorro perfeito para minha família." - Maria</p>
+                    </div>
+                </section>
                 <section id="cta">
                     <span>Para continuar, favor inserir um número do seu cartão de crédito</span>
                     <button className="continue-button">Continuar</button>

@@ -1,58 +1,58 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-}
-
 .about-page {
-    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #000000;
     padding: 20px;
 }
 
-header {
-    background-color: #4da9e7;
-    padding: 10px;
-}
-
 header h1 {
-    margin: 0;
+    text-align: center;
     color: #ffffff;
+    animation: fadeIn 2s ease-in-out;
 }
 
 main {
-    margin: 20px 0;
+    margin-top: 20px;
 }
 
 section {
-    margin: 20px 0;
-}
-
-.gallery {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+    margin-bottom: 40px;
 }
 
 .gallery img {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px;
     border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+}
+
+.testimonial {
+    background-color: #4693db;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .continue-button {
-    background-color: #4CAF50;
+    background-color: #65b6e6;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .continue-button:hover {
-    background-color: #45a049;
+    background-color: #419fca;
 }
 
-footer {
-    margin-top: 20px;
-    font-size: 0.8em;
-    color: #ffffff;
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
