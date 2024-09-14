@@ -1,6 +1,24 @@
-footer{
-    background-color: rgb(160, 142, 142);
-    padding:  10px;
+footer {
+    background-color: rgb(72, 158, 238);
+    padding: 20px;
     text-align: center;
     color: white;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+footer:hover {
+    background-color: rgb(54, 91, 146);
+}
+
+footer a {
+    color: #ffd700;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ff4500;
 }

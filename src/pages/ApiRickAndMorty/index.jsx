@@ -1,47 +1,56 @@
-import React, { useEffect, useState } from 'react';  
+import React, { useEffect, useState } from 'react';
 
-const dogImages = () => {  
-  const [dogs, setdogs] = useState([]);  
-  const [loading, setLoading] = useState(true);  
-  const [error, setError] = useState(null);  
+const dogImages = () => {
+  const [dogs, setDogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  useEffect(() => {  
-    const fetchdogs = async () => {  
-      try {  
-        const response = await fetch('https://api.thedogapi.com/v1/images/search?limit=10');  
-        if (!response.ok) {  
-          throw new Error('Network response was not ok');  
-        }  
-        const data = await response.json();  
-        setdogs(data);  
-      } catch (err) {  
-        setError(err.message);  
-      } finally {  
-        setLoading(false);  
-      }  
-    };  
+  const dogNames = ["Buddy", "Bella", "Charlie", "Pipi", "Lucy", "Daisy", "Bailey", "Sans", "Rocky", "Molly", "Popó"];
 
-    fetchdogs();  
-  }, []);  
+  useEffect(() => {
+    const fetchDogs = async () => {
+      try {
+        const response = await fetch('https://api.thedogapi.com/v1/images/search?limit=10');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        const dogsWithNames = data.map((dog, index) => ({
+          ...dog,
+          name: dogNames[Math.floor(Math.random() * dogNames.length)]
+        }));
+        setDogs(dogsWithNames);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  if (loading) {  
-    return <div>Loading...</div>;  
-  }  
+    fetchDogs();
+  }, []);
 
-  if (error) {  
-    return <div>Error: {error}</div>;  
-  }  
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-  return (  
-    <div>  
-      <h1>Dog Images</h1>  
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>  
-        {dogs.map(dog => (  
-          <img key={dog.id} src={dog.url} alt="dog" style={{ width: '200px', margin: '10px' }} />  
-        ))}  
-      </div>  
-    </div>  
-  );  
-};  
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
-export default dogImages;  
+  return (
+    <div>
+      <h1>Dog Images</h1>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        {dogs.map(dog => (
+          <div key={dog.id} style={{ margin: '10px', textAlign: 'center' }}>
+            <img src={dog.url} alt="dog" style={{ width: '200px' }} />
+            <p>{dog.name}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default dogImages;

@@ -1,7 +1,7 @@
 :root {  
-    --cor-fundo: #2e7d32;    /* Verde mais escuro */  
+    --cor-fundo: #41a6c5;    /* Verde mais escuro */  
     --cor-fonte: #ffffff;     /* Branco */  
-    --cor-hover: #4caf50;     /* Verde mais claro para hover */  
+    --cor-hover: #62a2dd;     /* Verde mais claro para hover */  
     --espaco: 15px;           /* Padding */  
     --largura-link: 100%;     /* Largura dos links */  
     --transicao: 0.3s;        /* Duração da transição */  
