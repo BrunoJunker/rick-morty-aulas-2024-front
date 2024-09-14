@@ -1,48 +1,47 @@
-import { useEffect, useState } from 'react'
-import './styles.css'
-import Card from '../../components/cards'
+import React, { useEffect, useState } from 'react';  
 
+const dogImages = () => {  
+  const [dogs, setdogs] = useState([]);  
+  const [loading, setLoading] = useState(true);  
+  const [error, setError] = useState(null);  
 
+  useEffect(() => {  
+    const fetchdogs = async () => {  
+      try {  
+        const response = await fetch('https://api.thedogapi.com/v1/images/search?limit=10');  
+        if (!response.ok) {  
+          throw new Error('Network response was not ok');  
+        }  
+        const data = await response.json();  
+        setdogs(data);  
+      } catch (err) {  
+        setError(err.message);  
+      } finally {  
+        setLoading(false);  
+      }  
+    };  
 
-export default function ApiRickAndMorty() {
-    const [ conteudo, setConteudo ] = useState(<>Carregando...</>)
+    fetchdogs();  
+  }, []);  
 
-    async function getCharacters(){
-        const reqOptions = {
-            method: "GET",
-            redirect: "follow"
-        }
-        const response = await fetch(
-            "https://rickandmortyapi.com/api/character",
-            reqOptions
-        )
+  if (loading) {  
+    return <div>Loading...</div>;  
+  }  
 
-        if(!response.ok) {
-            throw new error ("Http Erro")
-        }
+  if (error) {  
+    return <div>Error: {error}</div>;  
+  }  
 
-        const apiResponse = await response.json()
+  return (  
+    <div>  
+      <h1>Dog Images</h1>  
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>  
+        {dogs.map(dog => (  
+          <img key={dog.id} src={dog.url} alt="dog" style={{ width: '200px', margin: '10px' }} />  
+        ))}  
+      </div>  
+    </div>  
+  );  
+};  
 
-        return apiResponse
-    }
-
-    async function buildCards() {
-        const consulta = await getCharacters()
-
-        return consulta.results.map(personagem => <Card  data={personagem} />)
-    }
-
-    useEffect(() => {
-        async function getConteudo() {
-            setConteudo(await buildCards())
-        }
-
-        getConteudo()
-    }, [])
-
-    return (
-        <div className='list-api'>
-            { conteudo }
-        </div>
-    )
-}
+export default dogImages;  

@@ -1,29 +1,43 @@
-.cabecalho{
-    background-color: rgb(28, 116, 28);
-    color: white;
-    padding: 15px;
-    text-align: center ;
+:root {  
+    --cor-fundo: #2e7d32;    /* Verde mais escuro */  
+    --cor-fonte: #ffffff;     /* Branco */  
+    --cor-hover: #4caf50;     /* Verde mais claro para hover */  
+    --espaco: 15px;           /* Padding */  
+    --largura-link: 100%;     /* Largura dos links */  
+    --transicao: 0.3s;        /* Duração da transição */  
+    --sombra: rgba(0, 0, 0, 0.2); /* Sombra leve para o efeito */  
+}  
+
+.cabecalho {  
+    background-color: var(--cor-fundo);  
+    color: var(--cor-fonte);  
+    padding: var(--espaco);  
+    text-align: center;  
+    box-shadow: 0 4px 8px var(--sombra); /* Sombra adicionada */  
+    border-radius: 8px;         /* Cantos arredondados */  
+}  
+
+.cabecalho ol {  
+    margin: 0;  
+    list-style-type: none;  
+    padding: 0;  
+    display: flex;  
+    justify-content: space-around;  
+    flex-wrap: wrap;  
+}  
+
+.cabecalho ol a {  
+    flex: 1;  
+    padding: 10px;  
+    color: var(--cor-fonte);  
+    text-decoration: none;  
+    text-align: center; /* Alinhamento centralizado */  
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo leve para os links */  
+    border-radius: 5px; /* Cantos arredondados nos links */  
+    transition: background-color var(--transicao), transform var(--transicao); /* Transição de hover melhorada */  
+}  
+
+.cabecalho ol a:hover {  
+    background-color: var(--cor-hover);  
+    transform: scale(1.05); /* Efeito de 'zoom' ao passar o mouse */  
 }
-
-.cabecalho ol {
-    margin: 0;
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-    
-}
-
-.cabecalho ol a{
-    width: 300%;
-    padding: 10px;
-    color: white;
-    text-decoration: none;
-
-}
-
-.cabecalho ol a:hover{
-    background-color:  rgb(20, 95, 20);
-
-}
-
